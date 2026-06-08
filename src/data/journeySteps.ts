@@ -1,7 +1,10 @@
 /**
  * HR Journey — Choplife Gaming
  * Source: transcricao/reuniao.txt
+ * Demo videos: factorialDemoVideos.ts · Images: public/journey/
  */
+
+import { FACTORIAL_DEMO_VIDEOS } from "./factorialDemoVideos";
 
 export interface DemoVideo {
   label: string;
@@ -43,8 +46,11 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     quote:
       "After the performance reviews I think we have all the gaps mapped out — then how do we link that to trainings?",
     moduleLabel: "Factorial Performance 2.0",
-    demoVideos: [],
-    screenshots: [{ label: "Score distribution & competencies", file: "analyticsdistribution.png" }],
+    demoVideos: [
+      FACTORIAL_DEMO_VIDEOS.performance.performanceReview,
+      FACTORIAL_DEMO_VIDEOS.performance.peerReviews,
+    ],
+    screenshots: [{ label: "Performance score distribution", file: "analyticsdistribution.png" }],
   },
   {
     id: "step-2",
@@ -58,7 +64,10 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     withFactorial:
       "Every step is defined and trackable. Custom templates, automated reminders, and approval workflows. Managers see questionnaires, assessments, and action items in one flow — full visibility, zero admin chaos.",
     moduleLabel: "Factorial Performance · Workflows",
-    demoVideos: [],
+    demoVideos: [
+      FACTORIAL_DEMO_VIDEOS.performance.peerReviews,
+      FACTORIAL_DEMO_VIDEOS.performance.performanceReview,
+    ],
     screenshots: [{ label: "Action plan from review", file: "actionplan.png" }],
   },
   {
@@ -73,7 +82,10 @@ export const JOURNEY_STEPS: JourneyStep[] = [
     withFactorial:
       "The 9-box grid maps employees by performance (X axis) and potential (Y axis). Identify rising stars to fast-track, spot flight risks before it is too late, and build succession plans backed by real review data.",
     moduleLabel: "Factorial Performance · 9-box grid",
-    demoVideos: [],
+    demoVideos: [
+      FACTORIAL_DEMO_VIDEOS.engagement.oneOnOne,
+      FACTORIAL_DEMO_VIDEOS.engagement.surveys,
+    ],
     screenshots: [{ label: "9-box talent grid", file: "9box.png" }],
   },
   {
@@ -89,7 +101,7 @@ export const JOURNEY_STEPS: JourneyStep[] = [
       "From the action plan, managers request a course from the catalog or propose an external one — with provider, cost, dates, and justification. HR receives the request, approves, and assigns. Low competency score → assign a course. High-potential employee → tailored development path.",
     quote: "Very perfect.",
     moduleLabel: "Factorial Performance → Trainings",
-    demoVideos: [],
+    demoVideos: [FACTORIAL_DEMO_VIDEOS.trainings.lms],
     screenshots: [{ label: "Learning plan request", file: "actionplan.png" }],
   },
   {
@@ -105,7 +117,10 @@ export const JOURNEY_STEPS: JourneyStep[] = [
       "AI creates courses from your PDFs in minutes. Assign to individuals or teams. Track mandatory compliance with expiration dates. Training budgets in real time — direct costs (external provider) and indirect costs (manager hours). Employees complete trainings on mobile. Virtual sessions with external links tracked alongside internal content.",
     quote: "We do both, depending on the needs.",
     moduleLabel: "Factorial Trainings · AI · Budgets",
-    demoVideos: [],
+    demoVideos: [
+      FACTORIAL_DEMO_VIDEOS.trainings.certificate,
+      FACTORIAL_DEMO_VIDEOS.trainings.lms,
+    ],
   },
 ];
 
@@ -148,7 +163,7 @@ export const NEXT_STEPS: NextStep[] = [
   },
 ];
 
-const JOURNEY_ASSET_VERSION = "choplife-v1";
+const JOURNEY_ASSET_VERSION = "choplife-v2";
 
 export function journeyAsset(fileName: string): string {
   return `${import.meta.env.BASE_URL}journey/${fileName}?v=${JOURNEY_ASSET_VERSION}`;
