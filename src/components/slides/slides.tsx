@@ -1,7 +1,6 @@
 import { Fragment, ReactNode } from "react";
 import {
   AlertTriangle,
-  Calendar,
   Check,
   Clock,
   FileText,
@@ -15,7 +14,7 @@ import {
   Zap,
 } from "lucide-react";
 import { ExpandableImage } from "@/components/ui/ImageLightbox";
-import { DEFAULT_VALUES as d, PRICING_PLACEHOLDER } from "@/utils/constants";
+import { DEFAULT_VALUES as d } from "@/utils/constants";
 
 const factorialModulesImg = `${import.meta.env.BASE_URL}journey/factorial-modules.svg`;
 
@@ -345,97 +344,6 @@ export const slides: SlideData[] = [
                 </div>
               </Fragment>
             ))}
-          </div>
-        </div>
-      </div>
-    ),
-  },
-
-  {
-    id: "path-forward",
-    title: "Path forward",
-    summary: "Demo · decision · investment",
-    icon: <Calendar size={24} />,
-    bg: "dark",
-    content: (
-      <div className="flex flex-col justify-center h-full px-[100px]">
-        <SectionLabel>Your path forward</SectionLabel>
-        <SlideTitle>Demo, scope, go-live</SlideTitle>
-        <div className="grid grid-cols-[1.1fr_0.9fr] gap-8 mt-2">
-          <div className="space-y-4">
-            {[
-              {
-                step: "1",
-                title: "Sandbox access — Victor",
-                body: "Explore Performance + LMS in a live Factorial environment. Deep-dive on 9-box grid, compliance trainings, and the performance-to-learning workflow.",
-              },
-              {
-                step: "2",
-                title: "Commercial alignment — both teams",
-                body: "Review detailed proposal with annual vs quarterly options. Talent Grid (Evans & Angela) covers implementation scope and localized after-sales support.",
-              },
-              {
-                step: "3",
-                title: "Go-live — 150 seats",
-                body: `Phase 1 rollout with ${d.payrollPartner}. Target ${d.decisionTimeline}.`,
-              },
-            ].map((item) => (
-              <div
-                key={item.step}
-                className="flex gap-5 border-l-4 border-primary/80 bg-white/5 border border-white/15 p-5"
-              >
-                <span className="text-[32px] font-bold opacity-50 shrink-0">{item.step}</span>
-                <div>
-                  <p className="text-[22px] font-bold mb-1">{item.title}</p>
-                  <p className="text-[17px] font-normal opacity-75">{item.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="space-y-4">
-            <div className="border border-white/20 bg-white/5 p-6">
-              <p className="text-[16px] font-bold uppercase tracking-widest opacity-70 mb-3">One-time implementation</p>
-              <p className="text-[42px] font-bold leading-none mb-2">
-                {d.implantacaoFactorial_USD != null ? `$${d.implantacaoFactorial_USD}` : PRICING_PLACEHOLDER}
-              </p>
-              <p className="text-[15px] font-normal opacity-60">{d.implantacaoNota}</p>
-            </div>
-            <div className="border border-white/20 bg-white/5 p-6">
-              <p className="text-[16px] font-bold uppercase tracking-widest opacity-70 mb-3">Monthly subscription</p>
-              <div className="space-y-4">
-                <div>
-                  <p className="text-[14px] font-bold uppercase tracking-wider opacity-60 mb-1">Annual · $3/user/mo</p>
-                  <p className="text-[36px] font-bold leading-none">
-                    {d.mensalFactorial_USD != null ? `$${d.mensalFactorial_USD}` : PRICING_PLACEHOLDER}
-                    <span className="text-[18px] font-normal opacity-75"> / month</span>
-                  </p>
-                </div>
-                <div className="pt-3 border-t border-white/15">
-                  <p className="text-[14px] font-bold uppercase tracking-wider opacity-60 mb-1">
-                    Quarterly · $4.75/user/mo
-                  </p>
-                  <p className="text-[36px] font-bold leading-none">
-                    {d.mensalFactorialQuarterly_USD != null
-                      ? `$${d.mensalFactorialQuarterly_USD}`
-                      : PRICING_PLACEHOLDER}
-                    <span className="text-[18px] font-normal opacity-75"> / month</span>
-                  </p>
-                </div>
-              </div>
-              <p className="text-[18px] font-normal opacity-75 mt-4">
-                {d.totalColaboradores > 0 ? `${d.totalColaboradores.toLocaleString()} employees · ` : ""}
-                volume discounts available
-              </p>
-              <p className="text-[15px] font-normal opacity-65 mt-3 pt-3 border-t border-white/15">
-                {d.pricingJustification}
-              </p>
-            </div>
-            <div className="border border-primary/40 bg-primary/10 p-5">
-              <p className="text-[16px] font-bold opacity-80 mb-1">{d.bundleName}</p>
-              <p className="text-[15px] font-normal opacity-70">
-                {d.vendedor} · {d.emailVendedor}
-              </p>
-            </div>
           </div>
         </div>
       </div>
